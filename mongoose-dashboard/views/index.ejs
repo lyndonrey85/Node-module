@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Different for loop</h2>
+    <% for (var x = 0; x < animals.length ; x++ ) { %>
+        Name: <%= animals[x].name %>
+        Species: <%= animals[x].species %>
+        Region: <%= animals[x].region %>
+        <p>_____________________________</p>
+    <% } %>
+
+
+    <h1>Here are all the amazing mongoose buddies that were entered</h1>    
+    <% for (var an in animals) { %>
+        <p>Name: <a href="<%= /mongoose._id%>"> <%= animal.name %> </a>
+            <a href="/<%= animals._id%> /edit"><button>Edit Mongoose</button></a>
+            <%= an.name %>
+        </p>
+    <% } %>
+</body>
+
+</html>

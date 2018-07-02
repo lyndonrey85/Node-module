@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        $(document).ready(function() {
+            let socket = io.connect();
+            $('#count').click(() => {
+                socket.emit('count_clicked', { data: 'Count button clicked'})
+            })
+            socket.on('count_response', data => {
+                $('#countText').html('<h2 id="countText" class="display-4">The button has been pushed ${data.response} times</h2>')
+            })
+            $('#reset').click(() => {
+                socket.emit('reset_clicked', { data: 'Reset button clicked' })
+            })
+            socket.on('reset_response', data => {
+                $('#countText').html('<h2 id="countText" class="display-4>The button has been pushed ${data.response} times</h2>')
+            })
+        })
+    </script>
+    <title>Epic button game</title>
+</head>
+<body>
+    <div clas="container">
+        <div class="row justify-content-center">
+            <h2 id="countText" class="display-4">The button has been pushed 0 times</h2>
+            <h3>Push the button to update the count</h3>
+        </div>
+        <div class="row justify-content-center">
+            <button id="count" type="button">Epic Button</button>
+            <button id="reset" type="button">Reset Count</button>
+        </div>
+    </div>
+</body>
+</html>
